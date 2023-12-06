@@ -28,7 +28,7 @@ The following information may help to resolve the situation:
 The following packages have unmet dependencies:
 docker-desktop : Depends: docker-ce-cli but it is not installable
 ```
-### Solution
+### Solution for 20.04.6 LTS
 - First you need to install `docker-ce-cli` and for that you have to first add the repository keyring to your local machine  
 ```sh
 # download the keyring
@@ -39,10 +39,18 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docke
 sudo apt-get install docker-ce-cli
 ```
 - After that you can follow as the offical instuction:
-`google-chrome` | `ubuntu`
 
+### Solution for 22.04.3 LTS
+- First you need to install `docker-ce-cli` and for that you have to first add the repository keyring to your local machine  
+```sh
+# add the Docker PPA repository to your system:
+sudo add-apt-repository universe
+sudo add-apt-repository ppa:docker/stable
+sudo apt update
+sudo apt install docker-ce-cli
+```
 
-## `google-chrom`
+## `google-chrome` | `ubuntu`
 ### Could not get lock /var/lib/dpkg/lock-frontend
 > After downloading the `google-chrome-stable_current_amd64.deb` file from the offical page, I tried `sudo apt install google-chrome-stable_current_amd64.deb` as usual. But, it didn't work and kept showing the following logs infinitely:
 ```sh
