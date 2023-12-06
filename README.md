@@ -38,6 +38,23 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docke
 # now it will install
 sudo apt-get install docker-ce-cli
 ```
-- After that you can follow as the offical instuction.
+- After that you can follow as the offical instuction:
+`google-chrome` | `ubuntu`
+
+
+## `google-chrom`
+### Could not get lock /var/lib/dpkg/lock-frontend
+> After downloading the `google-chrome-stable_current_amd64.deb` file from the offical page, I tried `sudo apt install google-chrome-stable_current_amd64.deb` as usual. But, it didn't work and kept showing the following logs infinitely:
+```sh
+E: Could not get lock /var/lib/dpkg/lock-frontend - open (11: Resource temporarily unavailable)  
+E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), is another process using it?
+```
+### Solution
+Instead of using `apt install`, you should use `dpkg` command as follows:
+```sh
+sudo dpkg -i google-chrome-stable_current_amd64.deb
+# after installation
+google-chrome
+```
 
 [TBC]
