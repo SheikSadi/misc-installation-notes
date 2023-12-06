@@ -11,4 +11,19 @@ curl https://dl.google.com/dl/cloudsdk/release/install_google_cloud_sdk.bash | b
 ```
 Find the backup for the above link here: [install_google_cloud_sdk.bash](/resources/install_google_cloud_sdk.bash)
 
+# `google-chrome` | `ubuntu`
+### Could not get lock /var/lib/dpkg/lock-frontend
+> After downloading the `google-chrome-stable_current_amd64.deb` file from the offical page, I tried `sudo apt install google-chrome-stable_current_amd64.deb` as usual. But, it didn't work and kept showing the following logs infinitely:
+```sh
+E: Could not get lock /var/lib/dpkg/lock-frontend - open (11: Resource temporarily unavailable)  
+E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), is another process using it?
+```
+### Solution
+Instead of using `apt install`, you should use `dpkg` command as follows:
+```sh
+sudo dpkg -i google-chrome-stable_current_amd64.deb
+# after installation
+google-chrome
+```
+
 [TBC]
